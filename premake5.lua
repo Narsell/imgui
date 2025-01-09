@@ -2,8 +2,7 @@ project "ImGui"
     kind "StaticLib"
     language "C++"
     cppdialect "C++20"
-    systemversion "latest"
-    staticruntime "Off"
+    staticruntime "On"
 
     targetdir ("../../../Binaries/" .. OutputDir .. "/%{prj.name}")
     objdir ("../../../Intermediates/" .. OutputDir .. "/%{prj.name}")
@@ -23,6 +22,9 @@ project "ImGui"
         "imstb_truetype.h",
     }
 
+    filter "system:windows"
+        systemversion "latest"
+
     filter "configurations:Debug"
         runtime "Debug"
         symbols "On"
@@ -30,3 +32,4 @@ project "ImGui"
     filter "configurations:Release"
         runtime "Release"
         optimize "On"
+        symbols "Off"
