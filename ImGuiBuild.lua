@@ -20,3 +20,6 @@ project "ImGui"
         "imstb_text_edit.h",
         "imstb_truetype.h",
     }
+
+    filter "system:linux"
+        pic "On"
